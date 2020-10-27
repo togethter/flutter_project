@@ -393,6 +393,155 @@ class button0 extends StatelessWidget {
     );
   }
 }
+class button1 extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    final title = '网络列表示例';
+
+    return MaterialApp(
+      title: title,
+      home: Scaffold(
+        appBar: AppBar(title: Text(title)),
+        // 使用GridView.count构建网格
+        body: GridView.count(
+          primary: false,
+          // 四周增加一定的空隙
+          padding: const EdgeInsets.all(20.0),
+          crossAxisSpacing: 30.0,
+          // 一行上放三列数据
+          crossAxisCount: 3,
+          // 数据项：五行三列
+          children:<Widget> [
+            const Text('第1行第1列'),
+            const Text('第1行第2列'),
+            const Text('第1行第3列'),
+            const Text('第2行第1列'),
+            const Text('第2行第2列'),
+            const Text('第2行第3列'),
+            const Text('第3行第1列'),
+            const Text('第3行第2列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+            const Text('第3行第3列'),
+          ],
+        ),
+      ),
+
+
+    );
+
+  }
+}
+
+
+class LoginPage extends StatefulWidget {
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  // 全局key用来获取From表单组件
+  GlobalKey<FormState> loginKey = GlobalKey<FormState>();
+
+  // 用户名
+  String userName;
+  // 密码
+  String passWord;
+  void login() {
+    // 读取当前的Form状态
+    var loginForm = loginKey.currentState;
+    if(loginForm.validate()){
+      loginForm.save();
+      print('userName:'+userName+'password:'+ passWord);
+    }
+  }
+  @override
+  Widget build(BuildContext context) {
+
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('form表当示例'),
+        ),
+        body: Column(
+          children:<Widget> [
+            Container(
+              // 添加内边距
+              padding: const EdgeInsets.all(16.0),
+              // 添加Form表单
+              child: Form(
+                key: loginKey,
+                child: Column(
+                  children: <Widget>[
+                    // 文本输入框表单组件
+                    TextFormField(
+                      // 装饰器
+                      decoration: InputDecoration(
+                        // 提示文本
+                        labelText: '请输入用户名',
+                      ),
+                      // 接收输入值
+                      onSaved: (value){
+                        userName = value;
+                      },
+                      onFieldSubmitted: (value){},
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: '请输入密码',
+                      ),
+                      obscureText: true,
+                      // 验证表单方法
+                      validator: (value){
+                        return value.length < 6 ? "密码长度不够6位":null;
+                      },
+                      onSaved: (value){
+                        passWord = value;
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // 限定容器大小
+            SizedBox(
+              width: 340.0,
+              height: 42.0,
+              // 添加登录按钮
+              child: RaisedButton(
+                onPressed: login,
+                child: Text(
+                    '登录',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+
+  }
+
+}
+
 
 class MyApp3 extends StatelessWidget {
   // This widget is the root of your application.
@@ -419,11 +568,17 @@ class MyApp3 extends StatelessWidget {
       // title: '水平列表示例',
       // home: buttonTHREE(),
 
-        title: '长列表示例',
-        home: button0(
-          // 使用 generate方法产生500条数据
-          items: new List<String>.generate(500, (i) => "Item $i"),
-        )
+        // title: '长列表示例',
+        // home: button0(
+        //   // 使用 generate方法产生500条数据
+        //   items: new List<String>.generate(500, (i) => "Item $i"),
+        // )
+      // title: '构建网格',
+      // home: button1(),
+
+      title: "登录表单",
+      home: LoginPage(),
+
     );
   }
 }
