@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MyApp3());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp1 extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,409 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyApp2 extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '容器组件',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('容器组件示例'),
+        ),
+        body: Center(
+          // 添加容器
+          child: Container(
+            width: 200.0,
+            height: 200.0,
+            // 添加边框装饰效果
+            decoration: BoxDecoration(
+              color: Colors.yellow,
+              // 设置上下左右四个边框样式
+              border: new Border.all(
+                color: Colors.blue, // 边框颜色
+                width: 8.0, // 边框粗细
+              ),
+              borderRadius: const BorderRadius.all(const Radius.circular(8.0)),
+            ),
+            child: Text(
+              'Flutter',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 28.0),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class imageDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // 居中展示
+    return Center(
+      child: Image.network(
+        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603705844657&di=96f622dc0acfa070fb7e95f1497c7611&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F56%2F12%2F01300000164151121576126282411.jpg',
+        // 填充方式
+        fit: BoxFit.fitWidth,
+      ),
+    );
+  }
+}
+
+class ContainerDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('文本组件'),
+      ),
+      body: Column(
+        children: <Widget>[
+          // 文本组件
+          Text(
+            '红色字体+黑色删除线+18号+斜体+粗体',
+            style: TextStyle(
+              // 字体颜色
+              color: const Color(0xffff0000),
+              // 文本装饰器(删除线)
+              decoration: TextDecoration.lineThrough,
+              // 文本装饰器颜色(删除线颜色)
+              decorationColor: const Color(0xff000000),
+              // 字体大小
+              fontSize: 18,
+              // 字体样式:是否斜体
+              fontStyle: FontStyle.italic,
+              // 字体粗细
+              fontWeight: FontWeight.bold,
+              // 文字间距
+              letterSpacing: 2.0,
+            ),
+          ),
+          Text(
+            '橙色+下划线+24号',
+            style: TextStyle(
+              color: const Color(0xffff9900),
+              decoration: TextDecoration.underline,
+              fontSize: 24,
+            ),
+          ),
+          Text(
+            '上划线+虚线+23号',
+            style: TextStyle(
+              decoration: TextDecoration.overline,
+              decorationStyle: TextDecorationStyle.dashed,
+              fontSize: 23.0,
+              // 字体样式
+              fontStyle: FontStyle.normal,
+            ),
+          ),
+          Text(
+            '23号+斜体+粗体+字间距6',
+            style: TextStyle(
+              fontSize: 23.0,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 6.0,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class LayoutDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('图标组件示例'),
+      ),
+      // 添加图标
+      body: Icon(
+        // 图标内容
+        Icons.phone,
+        // 图标颜色
+        color: Colors.green[500],
+        // 图标大小
+        size: 50.0,
+      ),
+    );
+  }
+}
+
+class LayoutDemo1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('图标按钮组件示例'),
+      ),
+      // 添加图标
+      body: Center(
+        // 添加图标按钮
+        child: IconButton(
+          // 图标元素
+          icon: Icon(Icons.volume_up, size: 48.0),
+          tooltip: '按下操作',
+          // 按下事件响应
+          onPressed: () {
+            print("按下操作");
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class ButtonONE extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'RaiseButton示例',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('RaisedButton组件示例'),
+        ),
+        body: Center(
+          // RaisedButton具有一种立体感
+          child: RaisedButton(
+            onPressed: () {
+              // 按下事件响应
+              print('按下的事件');
+            },
+            // 添加按钮文本
+            child: Text('RaisedButton组件'),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class buttonTWO extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final title = '基础列表示例';
+    return MaterialApp(
+      title: title,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        // 添加基础列表
+        body: ListView(
+          // 添加静态数据
+          children: <Widget>[
+            // ListTile 是一种样式相对固定的列表项,比如微信的'发现'页面
+            ListTile(
+              // 添加图标
+              leading: Icon(Icons.alarm),
+              // 添加文本
+              title: Text('Alarm'),
+            ),
+            ListTile(
+              // 添加图标
+              leading: Icon(Icons.phone),
+              // 添加文本
+              title: Text('phone'),
+            ),
+            ListTile(
+              // 添加图标
+              leading: Icon(Icons.airplay),
+              // 添加文本
+              title: Text('airplay'),
+            ),
+            ListTile(
+              // 添加图标
+              leading: Icon(Icons.airplay),
+              // 添加文本
+              title: Text('airplay'),
+            ),
+            ListTile(
+              // 添加图标
+              leading: Icon(Icons.airplay),
+              // 添加文本
+              title: Text('airplay'),
+            ),
+            ListTile(
+              // 添加图标
+              leading: Icon(Icons.alarm),
+              // 添加文本
+              title: Text('Alarm'),
+            ),
+            ListTile(
+              // 添加图标
+              leading: Icon(Icons.alarm),
+              // 添加文本
+              title: Text('Alarm'),
+            ),
+            ListTile(
+              // 添加图标
+              leading: Icon(Icons.alarm),
+              // 添加文本
+              title: Text('Alarm'),
+            ),
+            ListTile(
+              // 添加图标
+              leading: Icon(Icons.alarm),
+              // 添加文本
+              title: Text('Alarm'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class buttonTHREE extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final title = '水平列表示例';
+
+    return MaterialApp(
+      title: title,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+        ),
+
+        // 添加容器
+        body: Container(
+          // 顶部外边距为20
+          margin: EdgeInsets.symmetric(vertical: 50.0),
+          // 设定容器宽度
+          height: 200.0,
+          child: ListView(
+            // 设置水平方向排列
+            scrollDirection: Axis.horizontal,
+            // 添加子元素
+            children: <Widget>[
+              // 每个Container即为一个列表项
+              Container(
+                width: 160,
+                color: Colors.black,
+              ),
+              Container(
+                width: 160,
+                color: Colors.amber,
+              ),
+              Container(
+                width: 160,
+                color: Colors.green,
+                // 垂直布局
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      '水平',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 36,
+                      ),
+                    ),
+                    Text(
+                      '列表',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 36,
+                      ),
+                    ),
+                    Icon(Icons.list),
+                  ],
+                ),
+              ),
+              Container(
+                width: 160.0,
+                color: Colors.deepPurpleAccent,
+              ),
+              Container(
+                width: 160.0,
+                color: Colors.black,
+              ),
+              Container(
+                width: 160,
+                color: Colors.pinkAccent,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class button0 extends StatelessWidget {
+  // 列
+  final List<String> items;
+
+  button0({Key key, @required this.items}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    final title = '长列表示例';
+    return MaterialApp(
+      title: title,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        // 使用ListView.builder来构建列表项
+        body: ListView.builder(
+          // 列表长度
+          itemCount: items.length,
+          // 列表项构造器:context 为上下文,index表示列表项索引
+          itemBuilder: (context, index) {
+            return ListTile(
+              // 左侧图标
+              leading: Icon(Icons.phone),
+              // 文本内容
+              title: Text('${items[index]}'),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class MyApp3 extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      // title: 'text demo',
+      // home: ContainerDemo(),
+
+      // title: 'image demo',
+      // home: imageDemo(),
+
+      // title: '图标组件示例',
+      // home: LayoutDemo(),
+
+      // 图标按钮组件
+      // title: '图标按钮组件示例',
+      // home: LayoutDemo1(),
+      // title: 'RaisedButton示例',
+      // home: ButtonONE(),
+      // title: '基础列表示例',
+      // home: buttonTWO(),
+
+      // title: '水平列表示例',
+      // home: buttonTHREE(),
+
+        title: '长列表示例',
+        home: button0(
+          // 使用 generate方法产生500条数据
+          items: new List<String>.generate(500, (i) => "Item $i"),
+        )
     );
   }
 }
