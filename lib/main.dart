@@ -541,6 +541,288 @@ class _LoginPageState extends State<LoginPage> {
   }
 
 }
+// 容器布局1
+class LayoutDemo_2 extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+   // 返回一个Container对象
+    Widget containser = Container(
+      // 添加装饰效果
+      decoration: BoxDecoration(
+        color: Colors.red,
+      ),
+
+      child: Column(
+        children: <Widget>[
+          // 水平布局
+          Row(
+            children: <Widget>[
+              // 使用Expanded防止内容溢出
+              Expanded(
+                child: Container(
+                  width: 150.0,
+                  height: 150.0,
+                  // 添加边框样式
+                  decoration: BoxDecoration(
+                    // 上下左右边康设置为10.0颜色为灰色
+                    border: Border.all(width: 10.0,color: Colors.blueGrey),
+                    // 上下左右边框弧度设置为8.0
+                    borderRadius: const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  // 上下左右增加边框
+                  margin: const EdgeInsets.all(4.0),
+                  child: Image.asset('images/1.jpeg'),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 10.0,color: Colors.blueGrey),
+                    borderRadius: const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  margin: const EdgeInsets.all(4.0),
+                  child: Image.asset('images/2.jpeg'),
+                ),
+              ),
+
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 10.0,color: Colors.blueGrey),
+                    borderRadius: const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  margin: const EdgeInsets.all(4.0),
+                  child: Image.asset('images/3.jpeg'),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 10.0,color: Colors.yellow),
+                    borderRadius: const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  margin: const EdgeInsets.all(4.0),
+                  child: Image.asset('images/1.jpeg'),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+
+    return  Scaffold(
+      appBar: AppBar(
+        title: Text('Container容器布局示例'),
+      ),
+      body: containser,
+    );
+
+
+  }
+}
+// 剧中布局
+class LayoutDemo02 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Center居中布局示例'),
+      ),
+      body: Center(
+        // 添加文本
+        child: Text('Hello Flutter',style: TextStyle(
+          fontSize: 36
+        ),),
+      ),
+    );
+  }
+}
+
+class LayoutDemo03 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Padding填充布局示例'),
+      ),
+      body: Center(
+        // 添加容器 外框
+        child: Container(
+          width: 300.0,
+          height: 300.0,
+          // 容器内边距上下左右设置为60.0
+          padding: EdgeInsets.all(60.0),
+          // 添加边框
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(
+              color: Colors.green,
+              width: 8.0,
+            ),
+          ),
+          // 添加内容器:内框
+          child: Container(
+            width: 200.0,
+            height: 200.0,
+            // 添加边框
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(
+                color: Colors.blue,
+                width: 8.0,
+              ),
+            ),
+            // 添加图标
+            child: FlutterLogo(),
+          ),
+        ),
+      ),
+    );
+
+  }
+}
+
+
+class LayoutDemo04 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Align对齐布局示例'),
+      ),
+      body: Stack(
+        children: <Widget>[
+          // 左上角
+          Align(
+            // 对齐属性确定位置
+            alignment: FractionalOffset(0.0, 0.0),
+            // 添加图片
+            child: Image.asset('images/1.jpeg',width: 128.0,height: 128.0,),
+          ),
+          // 右上角
+          Align(
+            // 对齐属性确定位置
+            alignment: FractionalOffset(1.0, 0.0),
+            // 添加图片
+            child: Image.asset('images/1.jpeg',width: 128.0,height: 128.0,),
+          ),
+          // 左下角
+          Align(
+            // 对齐属性确定位置
+            alignment: FractionalOffset(0.0, 1.0),
+            // 添加图片
+            child: Image.asset('images/1.jpeg',width: 128.0,height: 128.0,),
+          ),
+          // 右下角
+          Align(
+            // 对齐属性确定位置
+            alignment: FractionalOffset(1.0, 1.0),
+            // 添加图片
+            child: Image.asset('images/1.jpeg',width: 128.0,height: 128.0,),
+          ),
+          // 中间
+          Align(
+            // 对齐属性确定位置
+            alignment: FractionalOffset(0.5, 0.5),
+            // 添加图片
+            child: Image.asset('images/1.jpeg',width: 128.0,height: 128.0,),
+          ),
+        ],
+      ),
+    );
+
+  }
+}
+
+
+class LayoutDemo05 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('水平布局示例'),
+      ),
+      // 水平布局
+      body: Row(
+        children: <Widget>[
+          Expanded(
+            child: Text('左侧文本',textAlign: TextAlign.center),
+          ),
+          Expanded(
+            child: Text('中间文本',textAlign: TextAlign.center),
+          ),
+          Expanded(child: FittedBox(
+            fit: BoxFit.contain,
+            child: const FlutterLogo(),
+          )),
+        ],
+      ),
+    );
+  }
+}
+class LayoutDemo06 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('垂直布局示例'),
+      ),
+      // 垂直布局
+      body: Column(
+        children: <Widget>[
+          Text('Flutter'),
+          Text('垂直布局'),
+          // 添加图标
+          Expanded(child: FittedBox(
+            fit: BoxFit.contain,
+            child: const FlutterLogo(),
+          )),
+        ],
+      ),
+    );
+  }
+}
+
+class LayoutDemo07 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('垂直布局示例,水平方向向左对齐，主轴方向最小化处理'),
+      ),
+      // 垂直布局
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Text('Flutter是谷歌的移动UI框架'),
+          Text('可以快速在iOS和Android上构建高质量的原生用户界面'),
+          Text('Flutter可以与现有的代码一起工作，在全世界'),
+          Text('Flutter正在被越来越多的开发者和组织使用'),
+          Text('并且Flutter是完全免费、开源的'),
+          Text('Flutter！',style: TextStyle(fontSize: 36.0),),
+        ],
+      ),
+    );
+  }
+}
+
+
 
 
 class MyApp3 extends StatelessWidget {
@@ -576,9 +858,23 @@ class MyApp3 extends StatelessWidget {
       // title: '构建网格',
       // home: button1(),
 
-      title: "登录表单",
-      home: LoginPage(),
+      // title: "登录表单",
+      // home: LoginPage(),
 
+      // title: '容器布局',
+      // home: LayoutDemo_2(),
+      // title: 'Center剧中布局示例',
+      // home: LayoutDemo02(),
+      // title: "填充布局",
+      // home: LayoutDemo03(),
+      // title: '对齐布局',
+      // home: LayoutDemo04(),
+      // title: "水平布局示例",
+      // home: LayoutDemo05(),
+      // title: '垂直布局',
+      // home: LayoutDemo06(),
+      title: '垂直布局示例,水平方向向左对齐，主轴方向最小化处理',
+      home: LayoutDemo07(),
     );
   }
 }
