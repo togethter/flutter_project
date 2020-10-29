@@ -393,8 +393,8 @@ class button0 extends StatelessWidget {
     );
   }
 }
-class button1 extends StatelessWidget {
 
+class button1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = '网络列表示例';
@@ -412,7 +412,7 @@ class button1 extends StatelessWidget {
           // 一行上放三列数据
           crossAxisCount: 3,
           // 数据项：五行三列
-          children:<Widget> [
+          children: <Widget>[
             const Text('第1行第1列'),
             const Text('第1行第2列'),
             const Text('第1行第3列'),
@@ -437,23 +437,16 @@ class button1 extends StatelessWidget {
           ],
         ),
       ),
-
-
     );
-
   }
 }
 
-
 class LoginPage extends StatefulWidget {
-
   @override
   _LoginPageState createState() => _LoginPageState();
-
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   // 全局key用来获取From表单组件
   GlobalKey<FormState> loginKey = GlobalKey<FormState>();
 
@@ -464,21 +457,21 @@ class _LoginPageState extends State<LoginPage> {
   void login() {
     // 读取当前的Form状态
     var loginForm = loginKey.currentState;
-    if(loginForm.validate()){
+    if (loginForm.validate()) {
       loginForm.save();
-      print('userName:'+userName+'password:'+ passWord);
+      print('userName:' + userName + 'password:' + passWord);
     }
   }
+
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text('form表当示例'),
         ),
         body: Column(
-          children:<Widget> [
+          children: <Widget>[
             Container(
               // 添加内边距
               padding: const EdgeInsets.all(16.0),
@@ -495,10 +488,10 @@ class _LoginPageState extends State<LoginPage> {
                         labelText: '请输入用户名',
                       ),
                       // 接收输入值
-                      onSaved: (value){
+                      onSaved: (value) {
                         userName = value;
                       },
-                      onFieldSubmitted: (value){},
+                      onFieldSubmitted: (value) {},
                     ),
                     TextFormField(
                       decoration: InputDecoration(
@@ -506,10 +499,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       obscureText: true,
                       // 验证表单方法
-                      validator: (value){
-                        return value.length < 6 ? "密码长度不够6位":null;
+                      validator: (value) {
+                        return value.length < 6 ? "密码长度不够6位" : null;
                       },
-                      onSaved: (value){
+                      onSaved: (value) {
                         passWord = value;
                       },
                     ),
@@ -526,7 +519,7 @@ class _LoginPageState extends State<LoginPage> {
               child: RaisedButton(
                 onPressed: login,
                 child: Text(
-                    '登录',
+                  '登录',
                   style: TextStyle(
                     fontSize: 18.0,
                   ),
@@ -537,16 +530,14 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-
   }
-
 }
+
 // 容器布局1
 class LayoutDemo_2 extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-   // 返回一个Container对象
+    // 返回一个Container对象
     Widget containser = Container(
       // 添加装饰效果
       decoration: BoxDecoration(
@@ -566,9 +557,10 @@ class LayoutDemo_2 extends StatelessWidget {
                   // 添加边框样式
                   decoration: BoxDecoration(
                     // 上下左右边康设置为10.0颜色为灰色
-                    border: Border.all(width: 10.0,color: Colors.blueGrey),
+                    border: Border.all(width: 10.0, color: Colors.blueGrey),
                     // 上下左右边框弧度设置为8.0
-                    borderRadius: const BorderRadius.all(const Radius.circular(8.0)),
+                    borderRadius:
+                        const BorderRadius.all(const Radius.circular(8.0)),
                   ),
                   // 上下左右增加边框
                   margin: const EdgeInsets.all(4.0),
@@ -580,14 +572,14 @@ class LayoutDemo_2 extends StatelessWidget {
                   width: 150.0,
                   height: 150.0,
                   decoration: BoxDecoration(
-                    border: Border.all(width: 10.0,color: Colors.blueGrey),
-                    borderRadius: const BorderRadius.all(const Radius.circular(8.0)),
+                    border: Border.all(width: 10.0, color: Colors.blueGrey),
+                    borderRadius:
+                        const BorderRadius.all(const Radius.circular(8.0)),
                   ),
                   margin: const EdgeInsets.all(4.0),
                   child: Image.asset('images/2.jpeg'),
                 ),
               ),
-
             ],
           ),
           Row(
@@ -597,8 +589,9 @@ class LayoutDemo_2 extends StatelessWidget {
                   width: 150.0,
                   height: 150.0,
                   decoration: BoxDecoration(
-                    border: Border.all(width: 10.0,color: Colors.blueGrey),
-                    borderRadius: const BorderRadius.all(const Radius.circular(8.0)),
+                    border: Border.all(width: 10.0, color: Colors.blueGrey),
+                    borderRadius:
+                        const BorderRadius.all(const Radius.circular(8.0)),
                   ),
                   margin: const EdgeInsets.all(4.0),
                   child: Image.asset('images/3.jpeg'),
@@ -609,8 +602,9 @@ class LayoutDemo_2 extends StatelessWidget {
                   width: 150.0,
                   height: 150.0,
                   decoration: BoxDecoration(
-                    border: Border.all(width: 10.0,color: Colors.yellow),
-                    borderRadius: const BorderRadius.all(const Radius.circular(8.0)),
+                    border: Border.all(width: 10.0, color: Colors.yellow),
+                    borderRadius:
+                        const BorderRadius.all(const Radius.circular(8.0)),
                   ),
                   margin: const EdgeInsets.all(4.0),
                   child: Image.asset('images/1.jpeg'),
@@ -622,30 +616,29 @@ class LayoutDemo_2 extends StatelessWidget {
       ),
     );
 
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text('Container容器布局示例'),
       ),
       body: containser,
     );
-
-
   }
 }
+
 // 剧中布局
 class LayoutDemo02 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Center居中布局示例'),
       ),
       body: Center(
         // 添加文本
-        child: Text('Hello Flutter',style: TextStyle(
-          fontSize: 36
-        ),),
+        child: Text(
+          'Hello Flutter',
+          style: TextStyle(fontSize: 36),
+        ),
       ),
     );
   }
@@ -691,10 +684,8 @@ class LayoutDemo03 extends StatelessWidget {
         ),
       ),
     );
-
   }
 }
-
 
 class LayoutDemo04 extends StatelessWidget {
   @override
@@ -710,43 +701,61 @@ class LayoutDemo04 extends StatelessWidget {
             // 对齐属性确定位置
             alignment: FractionalOffset(0.0, 0.0),
             // 添加图片
-            child: Image.asset('images/1.jpeg',width: 128.0,height: 128.0,),
+            child: Image.asset(
+              'images/1.jpeg',
+              width: 128.0,
+              height: 128.0,
+            ),
           ),
           // 右上角
           Align(
             // 对齐属性确定位置
             alignment: FractionalOffset(1.0, 0.0),
             // 添加图片
-            child: Image.asset('images/1.jpeg',width: 128.0,height: 128.0,),
+            child: Image.asset(
+              'images/1.jpeg',
+              width: 128.0,
+              height: 128.0,
+            ),
           ),
           // 左下角
           Align(
             // 对齐属性确定位置
             alignment: FractionalOffset(0.0, 1.0),
             // 添加图片
-            child: Image.asset('images/1.jpeg',width: 128.0,height: 128.0,),
+            child: Image.asset(
+              'images/1.jpeg',
+              width: 128.0,
+              height: 128.0,
+            ),
           ),
           // 右下角
           Align(
             // 对齐属性确定位置
             alignment: FractionalOffset(1.0, 1.0),
             // 添加图片
-            child: Image.asset('images/1.jpeg',width: 128.0,height: 128.0,),
+            child: Image.asset(
+              'images/1.jpeg',
+              width: 128.0,
+              height: 128.0,
+            ),
           ),
           // 中间
           Align(
             // 对齐属性确定位置
             alignment: FractionalOffset(0.5, 0.5),
             // 添加图片
-            child: Image.asset('images/1.jpeg',width: 128.0,height: 128.0,),
+            child: Image.asset(
+              'images/1.jpeg',
+              width: 128.0,
+              height: 128.0,
+            ),
           ),
         ],
       ),
     );
-
   }
 }
-
 
 class LayoutDemo05 extends StatelessWidget {
   @override
@@ -759,12 +768,13 @@ class LayoutDemo05 extends StatelessWidget {
       body: Row(
         children: <Widget>[
           Expanded(
-            child: Text('左侧文本',textAlign: TextAlign.center),
+            child: Text('左侧文本', textAlign: TextAlign.center),
           ),
           Expanded(
-            child: Text('中间文本',textAlign: TextAlign.center),
+            child: Text('中间文本', textAlign: TextAlign.center),
           ),
-          Expanded(child: FittedBox(
+          Expanded(
+              child: FittedBox(
             fit: BoxFit.contain,
             child: const FlutterLogo(),
           )),
@@ -773,10 +783,10 @@ class LayoutDemo05 extends StatelessWidget {
     );
   }
 }
+
 class LayoutDemo06 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('垂直布局示例'),
@@ -787,7 +797,8 @@ class LayoutDemo06 extends StatelessWidget {
           Text('Flutter'),
           Text('垂直布局'),
           // 添加图标
-          Expanded(child: FittedBox(
+          Expanded(
+              child: FittedBox(
             fit: BoxFit.contain,
             child: const FlutterLogo(),
           )),
@@ -800,7 +811,6 @@ class LayoutDemo06 extends StatelessWidget {
 class LayoutDemo07 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('垂直布局示例,水平方向向左对齐，主轴方向最小化处理'),
@@ -815,21 +825,672 @@ class LayoutDemo07 extends StatelessWidget {
           Text('Flutter可以与现有的代码一起工作，在全世界'),
           Text('Flutter正在被越来越多的开发者和组织使用'),
           Text('并且Flutter是完全免费、开源的'),
-          Text('Flutter！',style: TextStyle(fontSize: 36.0),),
+          Text(
+            'Flutter！',
+            style: TextStyle(fontSize: 36.0),
+          ),
         ],
       ),
     );
   }
 }
 
+class LayoutDemo08 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('FittedBox缩放布局示例'),
+      ),
+      // 垂直布局
+      body: Container(
+        color: Colors.grey,
+        width: 250.0,
+        height: 250.0,
+        // 缩放布局
+        child: FittedBox(
+          // 宽高等比填充
+          fit: BoxFit.contain,
+          // 对齐属性:左上角对齐
+          alignment: Alignment.topLeft,
+          // 内部容器
+          child: Container(
+            color: Colors.deepOrange,
+            child: Text("缩放布局"),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
+class LayoutDemo09 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var stack = Stack(
+      // 子组件左上角对齐
+      alignment: Alignment.topLeft,
+      children: <Widget>[
+        // 底部添加一个头像
+        CircleAvatar(
+          backgroundImage: AssetImage('images/1.jpeg'),
+          radius: 100.0,
+        ),
+        // 上面加一个容器,容器里再放一个文本
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.black38,
+          ),
+          child: Text(
+            '我是超级飞侠',
+            style: TextStyle(
+              fontSize: 22.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+    );
 
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Stack层叠布局'),
+      ),
+      body: Center(
+        child: stack,
+      ),
+    );
+  }
+}
+
+class LayoutDemo10 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('层叠定位布局示例'),
+      ),
+      body: Center(
+        child: Stack(
+          children: <Widget>[
+            Image.network(
+                'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603959321798&di=d0e643531b0dd44875fddeccfa43b9f9&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F56%2F12%2F01300000164151121576126282411.jpg'),
+            Positioned(
+              bottom: 50.0,
+              right: 50.0,
+              child: new Text(
+                'hi flutter',
+                style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'serif',
+                    color: Colors.white),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LayoutDemo11 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var stack = IndexedStack(
+      index: 1, // 设置索引未1就只显示文本内容
+      alignment: const FractionalOffset(0.2, 0.2),
+      children: <Widget>[
+        // 索引未0
+        CircleAvatar(
+          backgroundImage: new AssetImage('images/2.jpeg'),
+          radius: 100.0,
+        ),
+        //索引为1
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.black38,
+          ),
+          child: Text(
+            '我是超级飞侠',
+            style: TextStyle(
+              fontSize: 22.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+    );
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('indexedstack布局示例'),
+      ),
+      body: Center(
+        child: stack,
+      ),
+    );
+  }
+}
+
+class LayoutDemo12 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('overflowBox溢出父容器显示示例'),
+      ),
+      body: Container(
+        color: Colors.green,
+        width: 200.0,
+        height: 200.0,
+        padding: const EdgeInsets.all(50.0),
+        child: OverflowBox(
+          alignment: Alignment.topLeft,
+          maxWidth: 400.0,
+          maxHeight: 400.0,
+          child: Container(
+            color: Colors.blueGrey,
+            width: 300.0,
+            height: 300.0,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class LayoutDemo13 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('SizeBox设置具体尺寸示例'),
+      ),
+      body: SizedBox(
+        // 固定宽度为200.0 高度为300.0
+        width: 200.0,
+        height: 300.0,
+        child: const Card(
+          child: Text(
+            'SizedBox',
+            style: TextStyle(fontSize: 36),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class LayoutDemo14 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ConstrainedBox限定宽高示例'),
+      ),
+      body: ConstrainedBox(
+        constraints: const BoxConstraints(
+            minWidth: 150.0,
+            minHeight: 150.0,
+            maxWidth: 200.0,
+            maxHeight: 200.0),
+        child: Container(
+          width: 300.0,
+          height: 300.0,
+          color: Colors.green,
+        ),
+      ),
+    );
+  }
+}
+
+class LayoutDemo15 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('LimitedBox限定宽高布局示例'),
+      ),
+      body: Row(
+        children: <Widget>[
+          Container(
+            color: Colors.grey,
+            width: 100.0,
+          ),
+          LimitedBox(
+            // 设置最大宽度,限定child 在此范围内
+            maxWidth: 150.0,
+            child: Container(
+              color: Colors.lightGreen,
+              width: 250.0,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class LayoutDemo16 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('AspectRatio调整宽高比示例'),
+      ),
+      body: Container(
+        height: 200.0,
+        child: AspectRatio(
+          aspectRatio: 1.5,
+          child: Container(
+            color: Colors.green,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class LayoutDemo17 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('FractionallySizedBox百分比布局示例'),
+      ),
+      body: Container(
+        color: Colors.red,
+        height: 200.0,
+        width: 200.0,
+        child: FractionallySizedBox(
+          alignment: Alignment.topLeft, // 元素左上角对齐
+          widthFactor: 0.5, // 宽度因子
+          heightFactor: 1.5, // 高度因子
+          child: Container(
+            color: Colors.yellow,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class LayoutDemo18 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> list = <Widget>[
+      // 列表项
+      ListTile(
+        // 标题
+        title: Text(
+          '广州是黄埔大道建中路店',
+          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18.0),
+        ),
+        // 子标题
+        subtitle: Text('广州市黄埔大道建中路3号'),
+        // 左侧图标
+        leading: Icon(
+          Icons.fastfood,
+          color: Colors.orange,
+        ),
+      ),
+      ListTile(
+        // 标题
+        title: Text(
+          '广州是黄埔大道建中路店',
+          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18.0),
+        ),
+        // 子标题
+        subtitle: Text('广州市黄埔大道建中路3号'),
+        // 左侧图标
+        leading: Icon(
+          Icons.local_hospital,
+          color: Colors.orange,
+        ),
+      ),
+      ListTile(
+        // 标题
+        title: Text(
+          '广州是黄埔大道建中路店',
+          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18.0),
+        ),
+        // 子标题
+        subtitle: Text('广州市黄埔大道建中路3号'),
+        // 左侧图标
+        leading: Icon(
+          Icons.airplay,
+          color: Colors.orange,
+        ),
+      ),
+      ListTile(
+        // 标题
+        title: Text(
+          '广州是黄埔大道建中路店',
+          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18.0),
+        ),
+        // 子标题
+        subtitle: Text('广州市黄埔大道建中路3号'),
+        // 左侧图标
+        leading: Icon(
+          Icons.computer,
+          color: Colors.orange,
+        ),
+      ),
+    ];
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ListView布局示例'),
+      ),
+      body: Center(
+        // 列表视图组件
+        child: ListView(
+          children: list,
+        ),
+      ),
+    );
+  }
+}
+
+class LayoutDemo19 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('长文本滚动布局示例'),
+      ),
+      body: ListView(
+        children: <Widget>[
+          Center(
+            child: Text(
+              '\n广州天河区公园',
+              style: TextStyle(fontSize: 30.0),
+            ),
+          ),
+          Center(
+            child: Text(
+              '天河公园',
+              style: TextStyle(fontSize: 16.0),
+            ),
+          ),
+          Center(
+            // 添加长文本
+            child: Text(
+              '''天河公园,是区属综合星公元,卫浴广州天河区员村,西靠天府路,南连黄埔大道,北接中山大道,来往交通十分遍历,公园总面积为70.7公顷,木体面积占10公顷.天河公园以自然生态景观为主要特色,公园规划为五个功能区:百花园景区、文本娱乐区、老人活动区、森林休憩区、后勤管理区''',
+              style: TextStyle(fontSize: 14.0),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class LayoutDemo20 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // 使用generate构造图片列表
+    List<Container> _buildGridTitleList(int count) {
+      // index 为列表项索引
+      return List<Container>.generate(
+        count,
+        (int index) => Container(
+          // 根据索引添加图片路径
+          child: Image.asset('images/${1}.jpeg'),
+        ),
+      );
+    }
+
+    // 渲染GridView
+    Widget buildGrid() {
+      return GridView.extent(
+        maxCrossAxisExtent: 150.0, // 次轴的宽度
+        padding: const EdgeInsets.all(4.0), // 上下左右内边距
+        mainAxisSpacing: 4.0, // 主轴元素间距
+        crossAxisSpacing: 4.0, // 次轴元素间距
+        children: _buildGridTitleList(9), // 添加9个元素
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('GridView九宫格示例'),
+      ),
+      body: Center(
+        child: buildGrid(),
+      ),
+    );
+  }
+}
+
+class LayoutDemo21 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('tab表格布局示例'),
+      ),
+      body: Center(
+        // 添加表格
+        child: Table(
+          // 设置表格有多少列,并且指定列宽
+          columnWidths: const <int, TableColumnWidth>{
+            // 指定索引及固定列宽
+            0: FixedColumnWidth(100.0),
+            1: FlexColumnWidth(40.0),
+            2: FlexColumnWidth(80.0),
+            3: FlexColumnWidth(80.0),
+          },
+          // 设置表格边框样式
+          border: TableBorder.all(
+              color: Colors.black38, width: 2.0, style: BorderStyle.solid),
+          children: const <TableRow>[
+            // 添加一行数据
+            TableRow(
+              children: <Widget>[
+                Text('姓名'),
+                Text('性别'),
+                Text('年龄'),
+                Text('身高'),
+              ],
+            ),
+            // 添加第二行数据
+            TableRow(children: <Widget>[
+              Text('张三'),
+              Text('男'),
+              Text('26'),
+              Text('172'),
+            ]),
+            // 添加第三行数据
+            TableRow(
+              children: <Widget>[
+                Text('李四'),
+                Text('男'),
+                Text('28'),
+                Text('178'),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class LayoutDemo22 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Transform矩阵转换示例'),
+      ),
+      body: Center(
+        // 父容器 作为背景
+        child: Container(
+          // 背景颜色
+          color: Colors.grey,
+          // 矩阵转换
+          child: Transform(
+            // 对齐方式
+            alignment: Alignment.topRight,
+            // 设置旋转值
+            transform: Matrix4.rotationZ(0.3),
+            // 被旋转容器
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
+              color: const Color(0xFFE8581C),
+              child: const Text('Transform矩阵转换'),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class LayoutDemo23 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Baseline基准线布局示例'),
+      ),
+      body: Row(
+        // 水平等间距排列子组件间
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          // 设置基准线
+          Baseline(
+            baseline: 80.0,
+            baselineType: TextBaseline.alphabetic,
+            child: Text(
+              'AaBbCc',
+              style: TextStyle(
+                fontSize: 18.0,
+                textBaseline: TextBaseline.alphabetic,
+              ),
+            ),
+          ),
+          Baseline(
+            baseline: 80.0,
+            baselineType: TextBaseline.alphabetic,
+            child: Container(
+              width: 40.0,
+              height: 40.0,
+              color: Colors.green,
+            ),
+          ),
+          Baseline(
+            baseline: 80.0,
+            baselineType: TextBaseline.alphabetic,
+            child: Text(
+              'DdEeEf',
+              style: TextStyle(
+                fontSize: 26.0,
+                textBaseline: TextBaseline.alphabetic,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class LayoutDemo24 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final appTitle = 'Offstage控制是否显示组件示例';
+
+    return MaterialApp(
+      title: appTitle,
+      home: MyHomePage01(title: appTitle),
+    );
+  }
+}
+
+class MyHomePage01 extends StatefulWidget {
+  final String title;
+  MyHomePage01({Key key, this.title}) : super(key: key);
+  @override
+  _MyHomePage01 createState() => _MyHomePage01();
+}
+
+class _MyHomePage01 extends State<MyHomePage01> {
+  // 状态控制是否显示文本组件
+  bool offstage = true;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Offstage(
+          offstage: offstage, // 控制是否显示
+          child: Text(
+            '我出来啦!',
+            style: TextStyle(
+              fontSize: 36.0,
+            ),
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // 设置是否显示文本组件
+          setState(() {
+            offstage = !offstage;
+          });
+        },
+        tooltip: "显示隐藏",
+        child: Icon(Icons.flip),
+      ),
+    );
+  }
+}
 
 class MyApp3 extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Offstage控制是否显示组件示例',
+      home: LayoutDemo24(),
+      // title: 'Baseline基准线布局示例',
+      // home: LayoutDemo23(),
+      // title: 'Transform矩阵转换示例',
+      // home: LayoutDemo22(),
+      // title: 'Table表格布局示例',
+      // home: LayoutDemo21(),
+      // title: 'GridView九宫格示例',
+      // home: LayoutDemo20(),
+      // title: '长文本滚动布局示例',
+      // home: LayoutDemo19(),
+      // title: 'ListView布局示例',
+      // home: LayoutDemo18(),
+      // title: 'FractionallSizedBox百分比布局示例',
+      // home: LayoutDemo17(),
+      // title: 'Aspectratio调整宽高比',
+      // home: LayoutDemo16(),
+      // title: 'LimitedBox限定宽高布局示例',
+      // home: LayoutDemo15(),
+      // title: 'ConstrainedBox限定宽高示例',
+      // home: LayoutDemo14(),
+      // title: 'sizedBox设置具体尺寸示例',
+      // home: LayoutDemo13(),
+      // title: 'overflowBox溢出父容器显示示例',
+      // home: LayoutDemo12(),
+      // title: 'indexedstack布局示例',
+      // home: LayoutDemo11(),
+      // title: '层叠定位布局',
+      // home: LayoutDemo10(),
+      // title: 'stack布局示例Alignment',
+      // home: LayoutDemo09(),
+      // title: 'FittedBox缩放布局示例',
+      // home: LayoutDemo08(),
       // title: 'text demo',
       // home: ContainerDemo(),
 
@@ -850,11 +1511,11 @@ class MyApp3 extends StatelessWidget {
       // title: '水平列表示例',
       // home: buttonTHREE(),
 
-        // title: '长列表示例',
-        // home: button0(
-        //   // 使用 generate方法产生500条数据
-        //   items: new List<String>.generate(500, (i) => "Item $i"),
-        // )
+      // title: '长列表示例',
+      // home: button0(
+      //   // 使用 generate方法产生500条数据
+      //   items: new List<String>.generate(500, (i) => "Item $i"),
+      // )
       // title: '构建网格',
       // home: button1(),
 
@@ -873,8 +1534,8 @@ class MyApp3 extends StatelessWidget {
       // home: LayoutDemo05(),
       // title: '垂直布局',
       // home: LayoutDemo06(),
-      title: '垂直布局示例,水平方向向左对齐，主轴方向最小化处理',
-      home: LayoutDemo07(),
+      // title: '垂直布局示例,水平方向向左对齐，主轴方向最小化处理',
+      // home: LayoutDemo07(),
     );
   }
 }
