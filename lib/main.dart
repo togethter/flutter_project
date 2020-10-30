@@ -1452,13 +1452,180 @@ class _MyHomePage01 extends State<MyHomePage01> {
   }
 }
 
+class LayoutDemo25 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Wrap按宽高自动换行布局示例'),
+      ),
+      // 自动换行布局控件
+      body: Wrap(
+        spacing: 8.0, // Chip之间的间距大小
+        runSpacing: 4.0, // 行之间的间距大小
+        children: <Widget>[
+          Chip(
+            label: Text('西门吹雪'),
+            avatar: CircleAvatar(
+              backgroundColor: Colors.lightGreen.shade800,
+              child: Text(
+                '西门',
+                style: TextStyle(fontSize: 10.0),
+              ),
+            ),
+          ),
+          Chip(
+            label: Text('司空摘星'),
+            avatar: CircleAvatar(
+              backgroundColor: Colors.lightBlue.shade700,
+              child: Text(
+                '司空',
+                style: TextStyle(fontSize: 10.0),
+              ),
+            ),
+          ),
+          Chip(
+            label: Text('木婉清'),
+            avatar: CircleAvatar(
+              backgroundColor: Colors.orange.shade800,
+              child: Text(
+                '婉清',
+                style: TextStyle(fontSize: 10.0),
+              ),
+            ),
+          ),
+          Chip(
+            label: Text('萧十一郎'),
+            avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900,
+              child: Text(
+                '一郎',
+                style: TextStyle(fontSize: 10.0),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class LayoutDemo26 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // 风景区地址部分
+    Widget addressContainer = Container(
+      padding: const EdgeInsets.all(32.0), // 此部分四周间隔一定距离
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start, // 次轴即水平方向左侧对齐
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsets.only(bottom: 8.0), // 与下面文本间隔一定距离
+                  child: Text(
+                    '风景区地址',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Text(
+                  '湖北省十堰市丹江口市',
+                  style: TextStyle(color: Colors.grey[500]),
+                ),
+              ],
+            ),
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.red[500],
+          ),
+          Text('66'),
+        ],
+      ),
+    );
+
+    Column buildButtonColumn(IconData icon, String label) {
+      return Column(
+        mainAxisSize: MainAxisSize.min, // 垂直方向大小最小化
+        mainAxisAlignment: MainAxisAlignment.center, // 垂直方向居中对齐
+        children: <Widget>[
+          Icon(
+            icon,
+            color: Colors.lightGreen[600],
+          ), // 啥概念刹那图标部分
+          Container(
+            // 距离上面图标一定间距
+            margin: const EdgeInsets.only(top: 8.0),
+            // 下面文本部分
+            child: Text(
+              label,
+              style: TextStyle(
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.lightGreen[600]),
+            ),
+          ),
+        ],
+      );
+    }
+
+    // 按钮组部分
+    Widget buttoncontainer = Container(
+      // 水平布局
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly, // 水平方向均匀排列每个元素
+        children: <Widget>[
+          buildButtonColumn(Icons.call, '电话'),
+          buildButtonColumn(Icons.near_me, '导航'),
+          buildButtonColumn(Icons.share, '分享'),
+        ],
+      ),
+    );
+
+    Widget textContainer = Container(
+      // 设置上下左右内间距
+      padding: const EdgeInsets.all(32.0),
+      // 文本块一定要用'''来引用
+      child: Text(
+        '''武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上武当上''',
+        softWrap: true,
+      ),
+    );
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('布局综合示例'),
+      ),
+      body: ListView(
+        children: <Widget>[
+          // 风景图片
+          Image.asset(
+            'images/1.jpeg',
+            width: 600.0,
+            height: 240.0,
+            fit: BoxFit.cover,
+          ),
+          addressContainer,
+          buttoncontainer,
+          textContainer,
+        ],
+      ),
+    );
+  }
+}
+
 class MyApp3 extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Offstage控制是否显示组件示例',
-      home: LayoutDemo24(),
+      title: '布局综合示例',
+      home: LayoutDemo26(),
+      // title: 'Wrap按宽高自动换行布局示例',
+      // home: LayoutDemo25(),
+      // title: 'Offstage控制是否显示组件示例',
+      // home: LayoutDemo24(),
       // title: 'Baseline基准线布局示例',
       // home: LayoutDemo23(),
       // title: 'Transform矩阵转换示例',
